@@ -1,0 +1,25 @@
+packages: .
+
+with-compiler: ghc-9.0.1
+
+-- We need this version of liquidhaskell as it dropped the dependency on text-format,
+-- that doesn't compile on GHC9.
+source-repository-package
+    type: git
+    location: https://github.com/ucsd-progsys/liquidhaskell.git
+    tag: 92f5c6154e31ce883dd50cb8db0ef665eb17e052
+
+-- We need this version of liquid-fixpoint as it dropped the dependency on text-format,
+-- that doesn't compile on GHC9.
+source-repository-package
+    type: git
+    location: https://github.com/ucsd-progsys/liquid-fixpoint.git
+    tag: a66770f9c9f2530ffc052ca63e1f50be39280b16
+
+source-repository-package
+    type: git
+    location: https://github.com/liquidhaskell/liquid-ghc-prim.git
+    tag: v0.7.0
+
+constraints:
+  base ==4.15.0.0

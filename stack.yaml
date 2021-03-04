@@ -1,0 +1,26 @@
+extra-package-dbs: []
+ghc-options:
+  hscolour: -w
+allow-newer: true
+packages:
+- .
+
+# We need these versions of liquidhaskell and liquid-fixpoint as they dropped the dependency on text-format,
+# that doesn't compile on GHC9.
+extra-deps:
+- git: https://github.com/ucsd-progsys/liquid-fixpoint.git
+  commit: a66770f9c9f2530ffc052ca63e1f50be39280b16
+- git: https://github.com/ucsd-progsys/liquidhaskell.git
+  commit: 92f5c6154e31ce883dd50cb8db0ef665eb17e052
+- git: https://github.com/liquidhaskell/liquid-ghc-prim.git
+  commit: 75eaade086ef4aa4c453b1d88ad052f9db7fa673 # 0.7.0
+- th-compat-0.1.1@sha256:62f2dbddb23e0af39a4ea2f185911b172bc7533df3ca9b6ac9a6b22fc69e5831,2820
+- extra-1.7.9
+- optics-core-0.4
+- optics-th-0.4
+- optics-extra-0.4
+- indexed-traversable-0.1.1@sha256:e330ec1ab336ee2fb1eff117ebe3480d1663396fecd981f185b7123dc7941ae1,2469
+- indexed-traversable-instances-0.1@sha256:3aaf97040001bbe583e29c2b9c7d41660df265e6565a0d2ac09a3ed5b8bc21be,2874
+resolver: lts-17.4
+compiler: ghc-9.0.1
+
