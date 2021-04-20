@@ -1,0 +1,99 @@
+---
+version: 2.1
+
+commands:
+  setup_project:
+    description: "Setup the machine, clone the repo, checkout the submodules."
+    steps:
+      - run: apt-get update && apt-get install -y git ssh unzip
+      - run:
+          name: Install z3
+          command: |
+            wget https://github.com/Z3Prover/z3/releases/download/z3-4.8.7/z3-4.8.7-x64-ubuntu-16.04.zip
+            unzip z3-4.8.7-x64-ubuntu-16.04.zip
+            rm -f z3-4.8.7-x64-ubuntu-16.04.zip
+            cp z3-4.8.7-x64-ubuntu-16.04/bin/libz3.a /usr/local/lib
+            cp z3-4.8.7-x64-ubuntu-16.04/bin/z3 /usr/local/bin
+            cp z3-4.8.7-x64-ubuntu-16.04/include/* /usr/local/include
+            rm -rf z3-4.8.7-x64-ubuntu-16.04
+            z3 --version
+
+      - checkout
+      - add_ssh_keys
+
+  cabal_build:
+    description: "Build the project"
+    parameters:
+      cabal_update_command:
+        type: string
+        default: "cabal v2-update"
+      project_file:
+        type: string
+        default: "cabal.project"
+      ghc_options:
+        type: string
+        default: "--ghc-options=\"+RTS -M2G -RTS\""
+    steps:
+      - setup_project
+      - restore_cache:
+          keys:
+            - cabal-{{ checksum "liquid-ghc-prim.cabal" }}
+      - run:
+          name: Dependencies
+          command: |
+            << parameters.cabal_update_command >>
+            cabal v2-clean
+            cabal v2-build --project-file << parameters.project_file >> -j1 all
+      - save_cache:
+          key: cabal-{{ checksum "liquid-ghc-prim.cabal" }}
+          paths:
+            - ~/.cabal/store
+            - ./dist-newstyle
+
+  stack_build_and_test:
+    description: "Build project using Stack"
+    parameters:
+      stack_yaml_file:
+        type: string
+        default: "stack.yaml"
+    steps:
+      - setup_project
+      - restore_cache:
+          keys:
+            - stack-{{ checksum "<< parameters.stack_yaml_file >>" }}
+      - run:
+          name: Dependencies
+          command: |
+            stack --stack-yaml << parameters.stack_yaml_file >> setup
+            stack --stack-yaml << parameters.stack_yaml_file >> build --only-dependencies
+      - save_cache:
+          key: stack-{{ checksum "<< parameters.stack_yaml_file >>" }}
+          paths:
+            - ~/.stack
+            - ./.stack-work
+      - run:
+          name: Dist
+          command: stack --stack-yaml << parameters.stack_yaml_file >> sdist
+
+jobs:
+
+  stack_810:
+    docker:
+      - image: fpco/stack-build:lts-15.4
+    steps:
+        - stack_build_and_test:
+            stack_yaml_file: "stack.yaml"
+
+  cabal_900:
+    docker:
+      - image: phadej/ghc:9.0.1-focal
+    steps:
+      - cabal_build:
+          project_file: "cabal.project"
+
+workflows:
+  version: 2
+  build_stack_and_cabal:
+    jobs:
+      - stack_810
+      - cabal_900
