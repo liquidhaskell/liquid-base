@@ -1,3 +1,4 @@
+{-# LANGUAGE Unsafe #-}
 module GHC.Ptr ( module Exports ) where
 
 import GHC.Types

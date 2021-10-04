@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module GHC.Num (module Exports) where
 
 import GHC.Base

@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module GHC.List (module Exports) where
 
 import GHC.Base

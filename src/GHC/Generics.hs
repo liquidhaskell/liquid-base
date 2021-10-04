@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module GHC.Generics ( module Exports ) where
 
 import GHC.Base

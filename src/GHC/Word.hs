@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module GHC.Word (module Exports) where
 
 import GHC.Base
