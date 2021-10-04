@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module System.IO ( module Exports ) where
 
 import GHC.IO.Handle as Exports

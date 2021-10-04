@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module GHC.TypeLits ( module Exports ) where
 
 import GHC.Base

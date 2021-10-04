@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Data.Either ( module Exports ) where
 
 import GHC.Base

@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Data.Foldable (module Exports) where
 
 import GHC.Types

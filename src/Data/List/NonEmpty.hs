@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Data.List.NonEmpty ( module Exports ) where
 
 import Data.List

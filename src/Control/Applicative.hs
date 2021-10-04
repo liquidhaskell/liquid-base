@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Control.Applicative ( module Exports ) where
 
 import GHC.Base

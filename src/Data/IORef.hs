@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Data.IORef (module Exports ) where
 
 import GHC.Base

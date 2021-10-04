@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module GHC.IO.Handle ( module Exports ) where
 
 import GHC.Types

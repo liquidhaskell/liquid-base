@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Data.Int ( module Exports ) where
 
 import GHC.Int

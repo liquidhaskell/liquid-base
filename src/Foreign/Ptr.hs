@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Foreign.Ptr (module Exports) where
 
 import GHC.Ptr

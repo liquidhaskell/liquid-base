@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Foreign.Marshal.Alloc (module Exports) where
 
 import GHC.Types

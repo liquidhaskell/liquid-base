@@ -1,3 +1,4 @@
+{-# LANGUAGE Unsafe #-}
 module GHC.Base (module Exports) where
 
 import GHC.Types

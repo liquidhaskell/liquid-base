@@ -1,3 +1,4 @@
+{-# LANGUAGE Safe #-}
 module Foreign ( module Exports ) where
 
 import Data.Bits

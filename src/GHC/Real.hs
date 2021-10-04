@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module GHC.Real (module Exports) where
 
 import GHC.Types
