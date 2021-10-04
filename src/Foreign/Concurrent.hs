@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Foreign.Concurrent (module Exports) where
 
 import GHC.IO

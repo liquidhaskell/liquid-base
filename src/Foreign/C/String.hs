@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Foreign.C.String (module Exports) where
 
 import Foreign.Ptr

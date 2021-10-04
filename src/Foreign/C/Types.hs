@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Foreign.C.Types (module Exports) where
 
 import GHC.Base

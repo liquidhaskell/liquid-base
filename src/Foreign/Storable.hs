@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Foreign.Storable (module Exports) where
 
 import GHC.Base
