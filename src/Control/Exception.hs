@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Control.Exception ( module Exports ) where
 
 import GHC.Base
