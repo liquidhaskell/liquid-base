@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Data.List ( module Exports) where
 
 import Data.Char

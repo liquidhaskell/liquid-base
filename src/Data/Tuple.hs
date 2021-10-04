@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Data.Tuple (module Exports) where
 
 import GHC.Base

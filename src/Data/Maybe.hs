@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Data.Maybe ( module Exports ) where
 
 import GHC.Base

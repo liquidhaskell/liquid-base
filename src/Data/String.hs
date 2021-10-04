@@ -1,3 +1,4 @@
+{-# LANGUAGE Trustworthy #-}
 module Data.String ( module Exports ) where
 
 import GHC.Base
