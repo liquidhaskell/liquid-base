@@ -1,6 +1,6 @@
 cabal-version:      1.24
 name:               liquid-base
-version:            4.15.0.0
+version:            4.15.0.1
 synopsis:           Drop-in base replacement for LiquidHaskell
 description:        Drop-in base replacement for LiquidHaskell.
 license:            BSD3
